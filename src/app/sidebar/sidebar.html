@@ -1,0 +1,50 @@
+<div class="sidebar">
+  <div class="sidebar-logo">
+    <img src="logo.png" class="logo-img" alt="Logo" />
+    <div class="logo-title">minecloud</div>
+  </div>
+
+  <div class="side">
+    <nav class="sidebar-menu">
+      <ul>
+        @for (item of menuItems; track item.label) {
+          <li>
+            <a class="sidebar-link">
+              <mat-icon>{{ item.icon }}</mat-icon>
+              <span>{{ item.label }}</span>
+            </a>
+          </li>
+        }
+      </ul>
+    </nav>
+    <!-- Bloque inferior: settings + storage -->
+    <div class="sidebar-bottom">
+      <ul class="sidebar-settings">
+        @for (item of settingsItems; track item.label) {
+          <li>
+            <a class="sidebar-link">
+              <mat-icon>{{ item.icon }}</mat-icon>
+              <span>{{ item.label }}</span>
+            </a>
+          </li>
+        }
+      </ul>
+      <div class="sidebar-storage">
+        <div class="storage-title">
+          <mat-icon class="storage-icon">storage</mat-icon>
+          Storage
+        </div>
+        <div class="storage-bar-bg">
+          <div
+            class="storage-bar-fill"
+            [style.width.%]="(storageUsed / storageTotal) * 100"
+          ></div>
+        </div>
+        <div class="storage-info">
+          <span class="storage-used">{{ storageUsed }} GB used</span>
+          <span class="storage-total">/ {{ storageTotal }} GB</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

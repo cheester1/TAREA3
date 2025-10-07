@@ -1,0 +1,28 @@
+<div class="topbar">
+
+  <nav class="topbar-nav">
+    <ul>
+      @for (item of navItems; track item.label) {
+      <li>
+        <a class="topbar-nav-link @if(item.active){active}">
+          <mat-icon>{{ item.icon }}</mat-icon>
+          <span>{{ item.label }}</span>
+        </a>
+      </li>
+      }
+    </ul>
+  </nav>
+  <div class="topbar-right">
+    <div class="topbar-search">
+      <mat-icon class="search-icon">search</mat-icon>
+      <input type="text" placeholder="Search anything..." class="search-input" />
+    </div>
+    <div class="topbar-bell">
+      <mat-icon class="bell-icon">notifications_none</mat-icon>
+      <span class="bell-dot"></span>
+    </div>
+    <div class="topbar-avatar">
+      <img src="avatar.jpg" alt="User Avatar" class="avatar-img" />
+    </div>
+  </div>
+</div>

@@ -1,0 +1,14 @@
+<div class="quick-access">
+  <div class="quick-access-title">Quick Access</div>
+  <div class="quick-access-list">
+    @for (folder of quickFolders; track folder.name) {
+      <div class="quick-access-folder">
+        <div class="folder-info">
+        <mat-icon class="folder-icon">{{ folder.icon }}</mat-icon>
+          <div class="folder-name">{{ folder.name }}</div>
+          <div class="folder-meta">{{ folder.size }} • {{ folder.items }} items</div>
+        </div>
+      </div>
+    }
+  </div>
+</div>

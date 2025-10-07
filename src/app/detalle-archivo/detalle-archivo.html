@@ -1,0 +1,52 @@
+<div class="detalle-archivo">
+  <div class="detalle-header">
+    <mat-icon class="detalle-folder">folder</mat-icon>
+    <span class="detalle-close">&times;</span>
+  </div>
+  <div class="detalle-nombre">{{ nombre }}</div>
+  <div class="detalle-meta">
+    {{ tamano }} &bull; {{ modificado }} &bull; {{ cantidad }}
+  </div>
+  <div class="detalle-row">
+  <div class="detalle-labels">
+    <span class="detalle-label">Tags</span>
+    <a href="#" class="detalle-edit">Edit</a>
+  </div>
+  <div class="detalle-tags">
+    <span class="detalle-tag">Work</span>
+    <span class="detalle-tag">Source</span>
+    <span class="detalle-tag">Font</span>
+  </div>
+  <div class="detalle-labels" style="margin-top:1rem;">
+    <span class="detalle-label">Sharing</span>
+    <a href="#" class="detalle-edit">Manage</a>
+  </div>
+</div>
+  <div class="detalle-sharing-avatars">
+  @for (avatar of avatars.slice(0, 5); track avatar) {
+    <img [src]="avatar" class="detalle-avatar" alt="avatar" />
+  }
+  <span class="detalle-sharing-extra">+{{ usuariosExtra }}</span>
+</div>
+  <div class="detalle-tabs">
+    <button class="detalle-tab active">Activity</button>
+    <button class="detalle-tab">Comments</button>
+    <button class="detalle-tab">Versions</button>
+  </div>
+  <div class="detalle-actividad">
+    @for (item of actividad; track item.fecha + item.mensaje) {
+      <div class="actividad-item">
+        <div class="actividad-dot"></div>
+        <div class="actividad-content">
+          <div class="actividad-fecha">{{ item.fecha }}</div>
+          <div class="actividad-usuarios">
+            @for (usuario of item.usuarios; track usuario) {
+              <img [src]="usuario" class="actividad-avatar" alt="avatar" />
+            }
+          </div>
+          <div class="actividad-mensaje" [innerHTML]="item.mensaje"></div>
+        </div>
+      </div>
+    }
+  </div>
+</div>

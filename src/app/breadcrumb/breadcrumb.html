@@ -1,0 +1,67 @@
+<div class="file-list-header">
+  <div class="breadcrumb-bar">
+    <nav class="breadcrumb">
+      <ul>
+        <li>
+          <a href="#" class="crumb">Home</a>
+          <mat-icon class="crumb-separator">chevron_right</mat-icon>
+        </li>
+        <li>
+          <a href="#" class="crumb">Concept Font</a>
+          <mat-icon class="crumb-separator">chevron_right</mat-icon>
+        </li>
+        <li>
+          <a href="#" class="crumb">Maszeh</a>
+        </li>
+      </ul>
+    </nav>
+  </div>
+  <div class="file-list-actions">
+    <button class="view-btn"><mat-icon>grid_view</mat-icon></button>
+    <button class="add-btn"><mat-icon>add</mat-icon> Añadir Nuevo</button>
+  </div>
+</div>
+<table class="file-table">
+  <thead>
+    <tr>
+      <th>Nombre</th>
+      <th>Compartido</th>
+      <th>Tamaño</th>
+      <th>Modificado</th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+    @for (file of files; track file.nombre) {
+    <tr class="@if(file.nombre === 'Source'){selected-row}">
+      <td>
+        <mat-icon class="file-icon">{{ file.icono }}</mat-icon>
+        <span class="file-name">{{ file.nombre }}</span>
+      </td>
+      <td>
+        @if(file.avatares?.length) {
+        <div class="avatar-group">
+          @for (avatar of file.avatares; track avatar) {
+          <img [src]="avatar" alt="Avatar" class="avatar-img" />
+          }
+          @if(file.usuariosExtra) {
+          <span class="extra-users">+{{ file.usuariosExtra }}</span>
+          }
+        </div>
+        } @else {
+        <span class="share-type">{{ file.compartido }}</span>
+        }
+      </td>
+      <td>
+        <span>{{ file.tamano }}</span>
+      </td>
+      <td>
+        <span>{{ file.modificado }}</span>
+      </td>
+      <td>
+        <button class="more-btn"><mat-icon>more_vert</mat-icon></button>
+      </td>
+    </tr>
+    }
+  </tbody>
+</table>
